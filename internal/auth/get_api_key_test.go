@@ -13,7 +13,7 @@ func TestAuthHeaderError(t *testing.T) {
 	gotData, gotErr := GetAPIKey(authHeader)
 
 	want := ErrNoAuthHeaderIncluded
-	wantData := "Hi!"
+	wantData := ""
 
 	if !reflect.DeepEqual(want, gotErr) {
 		t.Fatalf("expected: %v, got: %v", want, gotErr)
@@ -29,7 +29,7 @@ func TestAuthHeaderSplit(t *testing.T) {
 
 	gotData, gotErr := GetAPIKey(authHeader)
 
-	wantData := "123456"
+	wantData := "12345"
 
 	if !reflect.DeepEqual(nil, gotErr) {
 		t.Fatalf("expected: %v, got: %v", nil, gotErr)
